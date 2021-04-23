@@ -1,6 +1,7 @@
 import { Button, Code, Modal } from '@geist-ui/react';
 import React, { useState } from 'react';
 import ReactJson from 'react-json-view';
+import superjson from 'superjson';
 
 import './Inspector.css';
 
@@ -24,7 +25,7 @@ export default function Inspector({ cache, data }: InspectorProps): JSX.Element 
         <Modal.Content className="ModalContent">
           <ReactJson
             theme="bright"
-            src={data}
+            src={superjson.serialize(data).json}
             indentWidth={2}
             name={null}
           />
