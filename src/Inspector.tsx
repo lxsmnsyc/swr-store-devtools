@@ -26,6 +26,7 @@ export default function Inspector({ cache, data }: InspectorProps): JSX.Element 
             theme="bright"
             src={data}
             indentWidth={2}
+            name={null}
           />
         </Modal.Content>
       </Modal>

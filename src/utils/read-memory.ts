@@ -1,5 +1,16 @@
 import superjson from 'superjson';
 
+superjson.registerCustom<string, string>({
+  isApplicable: (v): v is string => typeof v === 'string',
+  serialize: (v) => v,
+  deserialize: (v) => v,
+}, 'function');
+superjson.registerCustom<string, string>({
+  isApplicable: (v): v is string => typeof v === 'string',
+  serialize: (v) => v,
+  deserialize: (v) => v,
+}, 'promise');
+
 interface ChromeInspectedWindow {
   eval: <T>(key: string, result: (data: T, exception: Error) => void) => void;
 }
