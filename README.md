@@ -1,5 +1,7 @@
 # swr-store-devtools
 
+![image](https://user-images.githubusercontent.com/4783372/115829573-bc111e00-a441-11eb-9b6d-496d278e3e41.png)
+
 ## Install
 
 - Download this repository as ZIP.
