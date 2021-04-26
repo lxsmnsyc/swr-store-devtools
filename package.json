@@ -9,13 +9,15 @@
     "@geist-ui/react": "^2.1.5",
     "@geist-ui/react-icons": "^1.0.1",
     "@lyonph/react-hooks": "^0.3.5",
+    "base16-ts": "^0.2.0",
     "date-fns": "^2.21.1",
+    "ecmason": "^0.1.3",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-json-view": "^1.21.3",
+    "react-ecmason-view": "^0.1.0",
+    "react-scoped-model": "^2.0.2",
     "react-swr-store": "^0.8.2",
-    "superjson": "^1.7.4",
     "swr-store": "^0.8.2"
   },
   "devDependencies": {

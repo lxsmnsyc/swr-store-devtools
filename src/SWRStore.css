@@ -6,3 +6,11 @@
 
   margin: 8px;
 }
+
+.SWRStoreTabs {
+  width: 100% !important;
+}
+
+.tabs .content {
+  overflow-x: scroll;
+}

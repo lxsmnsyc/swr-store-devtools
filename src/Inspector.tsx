@@ -1,36 +1,25 @@
-import { Button, Code, Modal } from '@geist-ui/react';
-import React, { useState } from 'react';
-import ReactJson from 'react-json-view';
-import superjson from 'superjson';
-
-import './Inspector.css';
+import { Card } from '@geist-ui/react';
+import { Schemes, schemes } from 'base16-ts';
+import React from 'react';
+import { View } from 'react-ecmason-view';
+import { useEcmasonViewSettingsStates } from './models/EcmasonViewSettings';
 
 interface InspectorProps {
-  cache: string;
   data: any;
 }
 
-export default function Inspector({ cache, data }: InspectorProps): JSX.Element {
-  const [state, setState] = useState(false);
-  const handler = () => setState(true);
-  const closeHandler = () => {
-    setState(false);
-  };
+const base16Schemes: Schemes = schemes;
+
+export default function Inspector({ data }: InspectorProps): JSX.Element {
+  const states = useEcmasonViewSettingsStates();
 
   return (
-    <>
-      <Button auto onClick={handler}>View</Button>
-      <Modal open={state} onClose={closeHandler}>
-        <Modal.Title><Code>{cache}</Code></Modal.Title>
-        <Modal.Content className="ModalContent">
-          <ReactJson
-            theme="bright"
-            src={superjson.serialize(data).json}
-            indentWidth={2}
-            name={null}
-          />
-        </Modal.Content>
-      </Modal>
-    </>
+    <Card>
+      <View
+        {...states}
+        theme={base16Schemes[states.theme]}
+        value={data}
+      />
+    </Card>
   );
 }

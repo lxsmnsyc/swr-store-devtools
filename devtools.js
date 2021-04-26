@@ -2,12 +2,14 @@ function init() {
   chrome.devtools.inspectedWindow.eval(
     `
     (() => {
-      const store = new Map();
-      window.__SWR_STORE__ = store;
-      console.log('SWR_STORE');
       document.addEventListener('__SWR_STORE__', (event) => {
         const { data, key } = event.detail;
-        store.set(key, data);
+        console.log(data, key);
+        if (!window.__SWR_STORE__) {
+          console.log('__SWR_STORE__');
+          window.__SWR_STORE__ = new Map();
+        }
+        window.__SWR_STORE__.set(key, data);
       });
     })();
     `,

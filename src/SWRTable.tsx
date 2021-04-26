@@ -1,7 +1,7 @@
 import { Code, Loading, Table } from '@geist-ui/react';
 import React from 'react';
 import { useSWRStore } from 'react-swr-store';
-import Inspector from './Inspector';
+import InspectorModal from './InspectorModal';
 import ResultStatus from './ResultStatus';
 import TimeIndicator from './TimeIndicator';
 import data from './utils/data-store';
@@ -15,7 +15,7 @@ function transformData(currentData: Field[]) {
     .map((value) => ({
       key: <Code>{value.key}</Code>,
       status: <ResultStatus value={value.value.result.status} />,
-      data: <Inspector cache={value.key} data={value.value.result} />,
+      data: <InspectorModal cache={value.key} data={value.value.result} />,
       age: <TimeIndicator value={value.value.timestamp} />,
       validating: value.value.isValidating ? <Loading /> : null,
       listeners: <Code>{value.value.listeners}</Code>,
